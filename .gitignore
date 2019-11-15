@@ -1,4 +1,5 @@
 node_modules/
+/config/default.json
 /config/production.json
 
 /client/build
@@ -14,3 +15,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /.idea
+
+http-client.private.env.json
