@@ -3,17 +3,14 @@ import ContactContext from '../../context/contact/contactContext'
 
 const ContactForm = () => {
     const contactContext = useContext(ContactContext)
-
     const {addContact, current, clearCurrent, updateContact} = contactContext
 
-    const initialContactState = {
+    const [contact, setContact] = useState({
         name: '',
         email: '',
         phone: '',
         type: 'personal'
-    }
-
-    const [contact, setContact] = useState(initialContactState)
+    })
 
     const {name, email, phone, type} = contact
 
@@ -21,7 +18,12 @@ const ContactForm = () => {
         if (current !== null) {
             setContact(current)
         } else {
-            setContact(initialContactState)
+            setContact({
+                name: '',
+                email: '',
+                phone: '',
+                type: 'personal'
+            })
         }
     }, [current, contactContext])
 
