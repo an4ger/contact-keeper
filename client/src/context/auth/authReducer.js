@@ -1,5 +1,7 @@
-import {REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT,
-    CLEAR_ERRORS} from '../types'
+import {
+    REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT,
+    CLEAR_ERRORS, CONTACT_ERROR
+} from '../types'
 
 export default (state, action) => {
     switch (action.type) {
@@ -39,6 +41,12 @@ export default (state, action) => {
                 ...state,
                 error: null
             }
+        case CONTACT_ERROR: {
+            return {
+                ...state,
+                error: action.payload
+            }
+        }
         default: return state
     }
 }
